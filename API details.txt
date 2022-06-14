@@ -1,0 +1,36 @@
+b37b3c7ebd44dd331b6f888c817d23f8
+https://api.themoviedb.org/3/movie/550?api_key=b37b3c7ebd44dd331b6f888c817d23f8
+eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMzdiM2M3ZWJkNDRkZDMzMWI2Zjg4OGM4MTdkMjNmOCIsInN1YiI6IjYyOWQ2ZjhkOTkyZmU2MDA2Njg4MDU3ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.GE_1rmixMByR5M3nDBW7plpEJRw_qTJBiCP74j01d4c
+https://api.themoviedb.org/3/search/multi?api_key=b37b3c7ebd44dd331b6f888c817d23f8&query=Avatar
+https://api.themoviedb.org/3/
+
+gid-search bar 
+44.112
+
+
+name:'Batman',
+sugg_mov:{
+	Batman & Robin,
+	Batman Begins,
+	The Dark Knight Rises
+	Batman Returns
+	The Dark Knight
+	Batman Forever
+	Batman v Superman: Dawn of Justice
+	Batman
+	Superman
+	Spider-Man 2
+},
+name:'Batman',
+sugg_mov:{
+	Batman & Robin,
+	Batman Begins,
+	The Dark Knight Rises
+	Batman Returns
+	The Dark Knight
+	Batman Forever
+	Batman v Superman: Dawn of Justice
+	Batman
+	Superman
+	Spider-Man 2
+}
