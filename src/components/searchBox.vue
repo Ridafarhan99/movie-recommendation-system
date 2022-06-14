@@ -109,30 +109,33 @@
         Recommended Movies
       </h1>
 
-      <v-row v-if="recom" style="margin-left: 0%">
-        <v-col v-for="index in 5" :key="index" >
-          <v-card color="aquamarine" min-height="300" width="230" >
+      <v-row v-if="recommmovie.length == 5" style="margin-left: 0%">
+        <v-col v-for="index in recommmovie.length" :key="index">
+          <v-card color="aquamarine" min-height="300" width="230">
             <v-img
               max-height="150"
               :src="
                 'http://image.tmdb.org/t/p/w500' +
-                jsondata[moviedata.title][index].backdrop_path
+                recommmovie[index - 1].poster_path
               "
             >
             </v-img>
-            <v-card-title
-            style="min-height:150px"
-            :v-if="recData(index)"
-            >
+            <br />
+            <v-divider class="mx-4"></v-divider>
+
+            <v-card-title>
               <!-- {{moviedata.title}} :  -->
-              {{ jsondata[moviedata.title][index] }}
+              {{ recommmovie[index - 1].title }}
               <!-- {{recommmovie[0].title}} -->
               <!-- {{index}} -->
               <!-- {{test}} -->
             </v-card-title>
 
-            <v-divider class="mx-4"></v-divider>
-            <br>
+            <div class="grey--text ms-4">
+              IMDB rating: {{ recommmovie[index - 1].vote_average }}
+            </div>
+
+            <br />
             <!-- <v-btn
               style="margin-left:35%; color: ;"
             >open</v-btn> -->
@@ -204,29 +207,33 @@ export default {
       this.option = !this.option;
       this.moviedata = item;
       this.recom = true;
+      this.recData();
       // console.log(this.jsondata[this.moviedata.title][0]);
-      
+
       // console.log(this.moviedata);
     },
-    recData(index){
-      fetch(this.API_URL + this.jsondata[this.moviedata.title][index])
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(this.jsondata[this.moviedata.title][index])
-        const { page, results } = res;
-        this.page = page;
-        this.results = results;
-        this.recommmovie=[]
-        // console.log(results)
-        // console.log(this.jsondata[this.moviedata.title][index])
-        this.recommmovie.push(results[0]);
-        // console.log(index)
-        console.log(this.recommmovie[0].title)
-        // console.log(results[0])
-        // console.log(this.test);
-        // console.log(index)
-      })
-    }
+    recData() {
+      this.recommmovie = [];
+      for (let i = 0; i < 5; i++) {
+        fetch(this.API_URL + this.jsondata[this.moviedata.title][i])
+          .then((res) => res.json())
+          .then((res) => {
+            // console.log(this.jsondata[this.moviedata.title][i])
+            const { page, results } = res;
+            this.page = page;
+            this.results = results;
+            // console.log(results)
+            // console.log(this.jsondata[this.moviedata.title][index])
+            this.recommmovie.push(results[0]);
+            // console.log(index)
+            // console.log(this.recommmovie[0].poster_path)
+            // console.log(results[0])
+            // console.log(this.test);
+            // console.log(index)
+          });
+      }
+      console.log(this.recommmovie);
+    },
   },
 };
 </script>
